@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { BASE_URL } from './constants';
 
 /**
  * Create an axios instance
@@ -6,7 +7,7 @@ import axios from 'axios';
  * @params {object} baseURL: value
  */
 const axiosInstance = axios.create({
-  baseURL: 'https://jsonplaceholder.typicode.com/todos'
+  baseURL: BASE_URL
 });
 
 export default axiosInstance;
