@@ -1,6 +1,6 @@
 export const setTodos = (todos) => {
   return {
-    type: "SET_TODOS",
-    payload: todos,
+    type: 'SET_TODOS',
+    payload: todos
   };
 };

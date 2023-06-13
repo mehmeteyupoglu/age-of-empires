@@ -1,10 +1,10 @@
-import CustomButton from "../../atoms/Button";
+import CustomButton from '../../atoms/Button';
 
 function ButtonGroup() {
   return (
     <div className="button-group">
-        <CustomButton/>
-        <CustomButton/>
+      <CustomButton />
+      <CustomButton />
     </div>
   );
 }

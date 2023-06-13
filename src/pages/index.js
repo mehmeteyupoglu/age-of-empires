@@ -1,9 +1,5 @@
-import Home from "../pages/Home";
-import NotFound from "../pages/NotFound";
-import Todos from "../pages/Todos";
+import Home from '../pages/Home';
+import NotFound from '../pages/NotFound';
+import Todos from '../pages/Todos';
 
-export {
-    Home,
-    NotFound, 
-    Todos
-}
+export { Home, NotFound, Todos };

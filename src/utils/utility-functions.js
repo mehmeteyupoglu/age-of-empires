@@ -7,12 +7,10 @@ import { toast } from 'react-toastify';
  */
 
 export const capitalizeInput = (query) => {
-    const queryArray = query.split(" ");
+  const queryArray = query.split(' ');
 
-    const capitalizedArr = queryArray.map(
-        (query) => query.charAt(0).toUpperCase() + query.slice(1)
-    );
-    return capitalizedArr.join(" ");
+  const capitalizedArr = queryArray.map((query) => query.charAt(0).toUpperCase() + query.slice(1));
+  return capitalizedArr.join(' ');
 };
 
 /**
@@ -22,21 +20,21 @@ export const capitalizeInput = (query) => {
  */
 
 export const mapProducts = (products) => {
-    if (!products) {
-        return null;
-    }
+  if (!products) {
+    return null;
+  }
 
-    return products.map((product) => {
-        const { title, tags, body_html, id, image, product_type } = product;
-        return {
-            title,
-            tags,
-            body_html,
-            id,
-            image: image.src,
-            type: product_type,
-        };
-    });
+  return products.map((product) => {
+    const { title, tags, body_html, id, image, product_type } = product;
+    return {
+      title,
+      tags,
+      body_html,
+      id,
+      image: image.src,
+      type: product_type
+    };
+  });
 };
 
 /**
@@ -45,14 +43,13 @@ export const mapProducts = (products) => {
  * @returns {array | null} with certain properties
  */
 
-export const asyncToaster = (promise, {
-    loading = 'Loading',
-    success = 'Got the data',
-    error = 'Error when fetching'
-}) => {
-    toast.promise(promise, {
-        loading,
-        success,
-        error,
-    })
+export const asyncToaster = (
+  promise,
+  { loading = 'Loading', success = 'Got the data', error = 'Error when fetching' }
+) => {
+  toast.promise(promise, {
+    loading,
+    success,
+    error
+  });
 };

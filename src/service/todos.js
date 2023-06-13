@@ -1,6 +1,6 @@
-import { Request, UtilityFunctions } from "../utils";
+import { Request, UtilityFunctions } from '../utils';
 
-const prefix = "";
+const prefix = '';
 
 /**
  * Asynchronously fetch data from the mock backend
@@ -9,9 +9,9 @@ const prefix = "";
  */
 
 export const getTodos = () => {
-    const todoRequest = Request.get(`${prefix}`);
+  const todoRequest = Request.get(`${prefix}`);
 
-    UtilityFunctions.asyncToaster(todoRequest, {});
+  UtilityFunctions.asyncToaster(todoRequest, {});
 
-    return todoRequest;
+  return todoRequest;
 };

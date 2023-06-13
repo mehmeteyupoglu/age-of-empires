@@ -1,15 +1,15 @@
 const initialState = {
-    isLoading: false,
+  isLoading: false
 };
 
 export const appReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case "SET_LOADING":
-            return {
-                ...state,
-                isLoading: action.payload,
-            };
-        default:
-            return state;
-    }
+  switch (action.type) {
+    case 'SET_LOADING':
+      return {
+        ...state,
+        isLoading: action.payload
+      };
+    default:
+      return state;
+  }
 };
