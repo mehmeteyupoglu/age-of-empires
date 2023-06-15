@@ -2,7 +2,8 @@
   display: block;
 }
 
-.MuiPaper-root {
+.MuiPaper-root,
+.center-layout {
   padding: 0 120px !important;
 }
 
@@ -15,7 +16,15 @@
   }
 
   table {
-    border: 1px solid rgb(164, 161, 161);
+    border: 1px solid rgb(226 226 226);
     padding: 1px;
+  }
+}
+
+.center-layout.MuiBox-root {
+  margin-bottom: 10px;
+
+  .MuiTabs-root {
+    border: 1px solid rgb(226 226 226);
   }
 }

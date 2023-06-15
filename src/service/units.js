@@ -8,8 +8,8 @@ const prefix = '';
  * @returns {array || undefined}
  */
 
-export const getUnits = async () => {
-  const unitRequest = await Request.get(`${prefix}`);
+export const getUnits = async (params) => {
+  const unitRequest = await Request.get(`${prefix}/${params}`);
 
   return unitRequest;
 };
