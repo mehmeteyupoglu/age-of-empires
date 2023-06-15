@@ -1,23 +1,9 @@
-import CustomButton from '../../components/atoms/Button';
-import { useNavigate } from 'react-router-dom';
+import image from '../../images/age_of_empires_467x181.jpeg';
 
 function Home() {
-  const navigate = useNavigate();
-
-  const handleClick = (path) => {
-    navigate(`/${path}`);
-  };
-
   return (
-    <div className="home centered-pages">
-      <h1>Home</h1>
-      <div>
-        <CustomButton
-          title={'Go to Todos'}
-          onClick={() => handleClick('todos')}
-          className={'ms-2'}
-        />
-      </div>
+    <div className="main-padding centered-pages" data-testid="home-page">
+      <img src={image} alt="age-of-main-img" />
     </div>
   );
 }
