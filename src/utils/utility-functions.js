@@ -53,3 +53,24 @@ export const asyncToaster = (
     error
   });
 };
+
+/**
+ * @function
+ * @param {object}
+ * @returns {string} cumulative cost properties
+ */
+
+export const mapThroughObject = (obj) => {
+  let costs = '';
+  for (const key in obj) {
+    if (Object.prototype.hasOwnProperty.call(obj, key)) {
+      costs += `${key}: ${obj[key]} `;
+    }
+  }
+
+  if (costs == '') {
+    return '---';
+  }
+
+  return costs;
+};
