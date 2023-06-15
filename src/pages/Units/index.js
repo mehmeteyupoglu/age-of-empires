@@ -41,7 +41,9 @@ function Units() {
   return (
     <>
       <Box sx={{ width: '100%' }} className="center-layout">
-        <h4>Ages</h4>
+        <span>
+          <pre>Filter by ages</pre>
+        </span>
         <Tabs value={filter.value} onChange={handleChange} aria-label="ages-filter">
           <Tab value="All" label="All" />
           <Tab value="Dark" label="Dark" />
