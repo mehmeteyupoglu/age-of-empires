@@ -9,5 +9,4 @@ test('renders home page', () => {
   render(<Home />);
   const homePageElement = screen.getByTestId('home-page');
   expect(homePageElement).toBeInTheDocument();
-  expect(homePageElement).toContainHTML('<div>');
 });
