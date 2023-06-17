@@ -106,32 +106,37 @@ function Units() {
         <span>
           <pre>Filter by cost</pre>
         </span>
-        <div className="filter-group">
-          <Form.Check
-            type={'checkbox'}
-            id={`default-checkbox`}
-            label={`Wood`}
-            name={'Wood'}
-            onChange={handleChecked}
-            checked={costFilter['Wood'].isChecked}
-          />
-          <Slider
-            getAriaLabel={() => 'Cost Range'}
-            name="Wood"
-            value={woodRange}
-            onChange={handleCost}
-            valueLabelDisplay="auto"
-            min={0}
-            max={200}
-            step={10}
-            disabled={!costFilter['Wood'].isChecked}
-          />
-          {costFilter['Wood'].isChecked ? (
-            <span>{`${woodRange[0]} - ${woodRange[1]}`}</span>
-          ) : (
-            <span>--</span>
-          )}
-        </div>
+        {Object.keys(filterValues).map((item) => {
+          const filterItem = filterValues[item];
+          return (
+            <div className="filter-group" key={item}>
+              <Form.Check
+                type={'checkbox'}
+                id={`default-checkbox`}
+                label={item}
+                name={item}
+                onChange={handleChecked}
+                checked={costFilter[item].isChecked}
+              />
+              <Slider
+                getAriaLabel={() => 'Cost Range'}
+                name={item}
+                value={filterItem.value}
+                onChange={handleCost}
+                valueLabelDisplay="auto"
+                min={0}
+                max={200}
+                step={10}
+                disabled={!costFilter[item].isChecked}
+              />
+              {costFilter[item].isChecked ? (
+                <span>{`${filterItem.value[0]} - ${filterItem.value[1]}`}</span>
+              ) : (
+                <span>--</span>
+              )}
+            </div>
+          );
+        })}
       </Box>
       <CustomTable data={filterCost('Wood', woodRange, unitsReducer.units)} />
     </>
