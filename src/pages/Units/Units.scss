@@ -40,8 +40,19 @@
   align-items: center;
   gap: 5%;
 
+  .form-check,
+  .value-display-area {
+    min-width: 85px;
+  }
+
   span {
     min-width: fit-content;
     max-width: 300px;
   }
+}
+
+.filter-by-cost-container {
+  border: 1px solid rgb(226, 226, 226);
+  padding: 5px 0 5px 5px;
+  margin-bottom: 30px;
 }
