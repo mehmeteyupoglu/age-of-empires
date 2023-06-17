@@ -6,13 +6,9 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { useSelector } from 'react-redux';
 import { mapThroughObject } from '../../utils/utility-functions';
 
-function CustomTable() {
-  const state = useSelector((state) => state);
-  const { unitsReducer } = state;
-
+function CustomTable({ data }) {
   return (
     <>
       <TableContainer component={Paper} className="main-padding custom-table">
@@ -26,7 +22,7 @@ function CustomTable() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {unitsReducer.units.map((row) => (
+            {data.map((row) => (
               <TableRow key={row.id} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                 <TableCell component="th" scope="row">
                   {row.id}

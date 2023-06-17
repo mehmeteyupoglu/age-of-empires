@@ -133,7 +133,7 @@ function Units() {
           )}
         </div>
       </Box>
-      <CustomTable />
+      <CustomTable data={unitsReducer.units} />
     </>
   );
 }
