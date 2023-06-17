@@ -74,3 +74,21 @@ export const mapThroughObject = (obj) => {
 
   return costs;
 };
+
+/**
+ * @function
+ * @param {object}
+ * @returns {string} cumulative cost properties
+ */
+
+export const filterCost = (type, value, data) => {
+  data = data.filter((item) => {
+    if (item.cost) {
+      if (item.cost[type] >= value[0] && item.cost[type] <= value[1]) {
+        return item;
+      }
+    }
+  });
+
+  return data;
+};
