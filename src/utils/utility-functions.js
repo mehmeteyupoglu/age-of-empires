@@ -44,7 +44,32 @@ export const mapThroughObject = (obj) => {
  * @returns {string} cumulative cost properties
  */
 
-export const filterCost = (type, value, data) => {
+export const activeFilters = (filterObject) => {
+  return Object.keys(filterObject)
+    .map((item) => {
+      if (filterObject[item].isChecked) {
+        const filterValues = {
+          isActivated: filterObject[item].isActivated,
+          isChecked: filterObject[item].isChecked,
+          range: filterObject[item].value
+        };
+        return filterValues;
+      }
+    })
+    .filter((item) => !!item);
+};
+
+/**
+ * @function
+ * @param {object}
+ * @returns {string} cumulative cost properties
+ */
+
+export const filterCost = (filterObject = {}, type, value, data) => {
+  console.log('filterObject', filterObject);
+
+  // const _activeFilters = activeFilters(filterObject);
+
   data = data.filter((item) => {
     if (item.cost) {
       if (item.cost[type] >= value[0] && item.cost[type] <= value[1]) {

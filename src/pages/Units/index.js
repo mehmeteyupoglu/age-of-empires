@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState, useEffect } from 'react';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
@@ -14,43 +15,51 @@ function Units() {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
   const { unitsReducer } = state;
-  const [filter, setFilter] = React.useState({
+  const [filter, setFilter] = useState({
     type: 'age',
     value: 'All'
   });
-  const [costFilter, setCostFilter] = React.useState({
+  const [costFilter, setCostFilter] = useState({
     Wood: {
       isChecked: false,
-      range: [0, 200]
+      isActivated: false
     },
     Food: {
       isChecked: false,
-      range: [0, 200]
+      isActivated: false
     },
     Gold: {
       isChecked: false,
-      range: [0, 200]
+      isActivated: false
     }
   });
-  const [woodRange, setWoodRange] = React.useState([20, 40]);
-  const [foodRange, setFoodRange] = React.useState([20, 40]);
-  const [goldRange, setGoldRange] = React.useState([20, 40]);
+
+  // due to the limitations of MUI and time restriction, imperative declaration of ranges made
+  const [woodRange, setWoodRange] = useState([0, 200]);
+  const [foodRange, setFoodRange] = useState([0, 200]);
+  const [goldRange, setGoldRange] = useState([0, 200]);
 
   const filterValues = {
     Wood: {
       function: setWoodRange,
-      value: woodRange
+      value: woodRange,
+      isChecked: costFilter.Wood.isChecked,
+      isActivated: costFilter.Wood.isActivated
     },
     Food: {
       function: setFoodRange,
-      value: foodRange
+      value: foodRange,
+      isChecked: costFilter.Food.isChecked,
+      isActivated: costFilter.Food.isActivated
     },
     Gold: {
       function: setGoldRange,
-      value: goldRange
+      value: goldRange,
+      isChecked: costFilter.Gold.isChecked,
+      isActivated: costFilter.Gold.isActivated
     }
   };
-  React.useEffect(() => {
+  useEffect(() => {
     const { value, type } = filter;
     if (value == 'All') {
       dispatch(getUnitsRequest(''));
@@ -77,17 +86,16 @@ function Units() {
     setCostFilter({
       ...costFilter,
       [name]: {
-        ...name,
-        isChecked: checked
+        isChecked: checked,
+        isActivated: true
       }
     });
-  };
 
-  React.useEffect(() => {
-    if (unitsReducer.units.length > 0) {
-      filterCost('Wood', woodRange, unitsReducer.units);
+    // reset filter values when unchecked
+    if (!checked) {
+      filterValues[name].function([0, 200]);
     }
-  }, [woodRange]);
+  };
 
   return (
     <>
@@ -126,7 +134,7 @@ function Units() {
                 valueLabelDisplay="auto"
                 min={0}
                 max={200}
-                step={10}
+                step={5}
                 disabled={!costFilter[item].isChecked}
               />
               {costFilter[item].isChecked ? (
@@ -138,7 +146,7 @@ function Units() {
           );
         })}
       </Box>
-      <CustomTable data={filterCost('Wood', woodRange, unitsReducer.units)} />
+      <CustomTable data={filterCost(filterValues, 'Wood', woodRange, unitsReducer.units)} />
     </>
   );
 }
