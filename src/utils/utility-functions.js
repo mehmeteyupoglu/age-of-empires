@@ -65,11 +65,7 @@ export const activeFilters = (filterObject) => {
  * @returns {string} cumulative cost properties
  */
 
-export const filterCost = (filterObject = {}, type, value, data) => {
-  console.log('filterObject', filterObject);
-
-  // const _activeFilters = activeFilters(filterObject);
-
+export const filterCost = (type, value, data) => {
   data = data.filter((item) => {
     if (item.cost) {
       if (item.cost[type] >= value[0] && item.cost[type] <= value[1]) {
