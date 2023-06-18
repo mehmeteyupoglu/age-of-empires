@@ -7,8 +7,14 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { mapThroughObject } from '../../utils/utility-functions';
+import { useNavigate } from 'react-router';
 
 function CustomTable({ data }) {
+  const navigate = useNavigate();
+  const handleDetail = (id) => {
+    navigate(`${id}`);
+  };
+
   return (
     <>
       <TableContainer component={Paper} className="main-padding custom-table">
@@ -23,7 +29,12 @@ function CustomTable({ data }) {
           </TableHead>
           <TableBody>
             {data.map((row) => (
-              <TableRow key={row.id} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+              <TableRow
+                key={row.id}
+                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                onClick={() => {
+                  handleDetail(row.id);
+                }}>
                 <TableCell component="th" scope="row">
                   {row.id}
                 </TableCell>
