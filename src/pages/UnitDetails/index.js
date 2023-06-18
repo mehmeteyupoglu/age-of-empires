@@ -17,11 +17,7 @@ function UnitDetails() {
 
   return (
     <>
-      <Box sx={{ width: '100%' }} className="center-layout">
-        <span>
-          <pre>Filter by cost</pre>
-        </span>
-      </Box>
+      <Box sx={{ width: '100%' }} className="center-layout"></Box>
     </>
   );
 }
