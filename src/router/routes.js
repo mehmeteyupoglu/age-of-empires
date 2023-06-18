@@ -1,8 +1,8 @@
-import { Home, NotFound, Todos } from '../pages';
+import { Home, NotFound, Todos, UnitDetails, Units } from '../pages';
 
 const routes = [
   {
-    title: 'Home',
+    title: 'Home Page',
     path: '/',
     exact: true,
     element: <Home />,
@@ -13,6 +13,20 @@ const routes = [
     path: '/todos',
     exact: true,
     element: <Todos />,
+    children: []
+  },
+  {
+    title: 'Units Page',
+    path: '/units',
+    exact: true,
+    element: <Units />,
+    children: []
+  },
+  {
+    title: 'Unit Details Page',
+    path: '/units/:id',
+    exact: true,
+    element: <UnitDetails />,
     children: []
   },
   {

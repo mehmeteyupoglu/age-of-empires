@@ -1,6 +1,7 @@
-export const getUnitsRequest = () => {
+export const getUnitsRequest = (params) => {
   return {
-    type: 'GET_UNITS_REQUEST'
+    type: 'GET_UNITS_REQUEST',
+    params
   };
 };
 
