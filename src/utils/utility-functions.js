@@ -60,24 +60,6 @@ export const activeFilters = (filterObject) => {
 };
 
 /**
- * @function
- * @param {object}
- * @returns {string} cumulative cost properties
- */
-
-export const filterCost = (type, value, data) => {
-  data = data.filter((item) => {
-    if (item.cost) {
-      if (item.cost[type] >= value[0] && item.cost[type] <= value[1]) {
-        return item;
-      }
-    }
-  });
-
-  return data;
-};
-
-/**
  * Transforms the given data into a specific format.
  * @param {Array} data - The data to be transformed.
  * @returns {Object} - The transformed data in the desired format.
@@ -100,7 +82,13 @@ export const transformData = (data) => {
   return transformedData;
 };
 
-export const _filterCost = (filterValues, data) => {
+/**
+ * Filters data based on cost ranges.
+ * @param {Object} filterValues - Object containing cost filter values and settings.
+ * @param {Array} data - Array of data to be filtered.
+ * @returns {Array} - Filtered data based on cost ranges.
+ */
+export const filterCost = (filterValues, data) => {
   const filteredData = data.filter((item) => {
     if (item.cost) {
       let isFiltered = true;
