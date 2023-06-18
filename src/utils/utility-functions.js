@@ -80,3 +80,26 @@ export const filterCost = (filterObject = {}, type, value, data) => {
 
   return data;
 };
+
+/**
+ * Transforms the given data into a specific format.
+ * @param {Array} data - The data to be transformed.
+ * @returns {Object} - The transformed data in the desired format.
+ */
+
+export const transformData = (data) => {
+  const transformedData = {
+    id: data.id,
+    name: data.name,
+    description: data.description,
+    age: data.age,
+    wood_cost: data.cost.Wood,
+    food_cost: data.cost.Food,
+    gold_cost: data.cost.Gold,
+    build_time: data.build_time,
+    reload_time: data.reload_time,
+    hit_points: data.hit_points
+  };
+
+  return transformedData;
+};

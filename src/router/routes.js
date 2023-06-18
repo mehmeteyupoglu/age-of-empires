@@ -23,7 +23,7 @@ const routes = [
     children: []
   },
   {
-    title: 'Unit Details',
+    title: 'Unit Details Page',
     path: '/units/:id',
     exact: true,
     element: <UnitDetails />,
