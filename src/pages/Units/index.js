@@ -9,7 +9,7 @@ import Form from 'react-bootstrap/Form';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUnitsRequest } from '../../store/actions/unitsActions';
 import CustomTable from './CustomTable';
-import { filterCost } from '../../utils/utility-functions';
+import { _filterCost } from '../../utils/utility-functions';
 
 function Units() {
   const dispatch = useDispatch();
@@ -148,7 +148,7 @@ function Units() {
           })}
         </div>
       </Box>
-      <CustomTable data={filterCost(filterValues, 'Wood', woodRange, unitsReducer.units)} />
+      <CustomTable data={_filterCost(filterValues, unitsReducer.units)} />
     </>
   );
 }
