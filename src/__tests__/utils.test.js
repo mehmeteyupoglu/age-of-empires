@@ -158,6 +158,4 @@ describe('filterCost', () => {
 
     expect(filteredData).toHaveLength(3); // All items should pass the filter as filter types are not checked
   });
-
-  // Add more test cases to cover other scenarios if needed
 });
