@@ -36,9 +36,11 @@ The project was developed over a couple of days. Here is a breakdown of the deve
 | June 13, 2023 19:00-11.30pm | Initiate json-server, configure axios, service, store |
 | June 14, 2023 09:30-11.00am |                      Update docs                      |
 | June 14, 2023 12:00-03.00pm |   Encapsulate components, add snackbar, unit tests    |
-| June 14, 2023 03:30-06.00pm |      Render products, more styling and fix docs       |
-| June 14, 2023 07:00-08.00pm |                   Write unit tests                    |
-| June 14, 2023 09:45-10.30pm |                 Finalize the project                  |
+| June 15, 2023 03:30-06.00pm |      Render products, more styling and fix docs       |
+| June 16, 2023 03:30-08.00pm |                     Refactor code                     |
+| June 17, 2023 03:30-08.00pm |                 Filter functionality                  |
+| June 18, 2023 07:00-08.00pm |                   Write unit tests                    |
+| June 19, 2023 06:45-08.30pm |                 Finalize the project                  |
 
 ## Project Setup
 
