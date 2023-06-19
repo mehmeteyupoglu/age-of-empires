@@ -13,3 +13,13 @@
 .main-padding {
   padding: 0 40px;
 }
+
+.main-padding {
+  &.image-container {
+    padding: 0 200px;
+  }
+}
+
+body {
+  background: #c3c2ea42;
+}

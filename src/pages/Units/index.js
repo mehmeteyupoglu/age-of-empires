@@ -121,7 +121,7 @@ function Units() {
               <div className="filter-group" key={item}>
                 <Form.Check
                   type={'checkbox'}
-                  id={`default-checkbox`}
+                  id={`${item}`}
                   label={item}
                   name={item}
                   onChange={handleChecked}
