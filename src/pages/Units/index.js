@@ -105,8 +105,7 @@ function Units() {
           ))}
         </div>
       </Box>
-      {/* Render the table with filtered data */}
-      <CustomTable data={filterCost('Wood', filterValues.Wood.value, unitsReducer.units)} />
+      <CustomTable data={filterCost(filterValues, unitsReducer.units)} />
     </>
   );
 }
