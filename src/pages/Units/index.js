@@ -75,34 +75,37 @@ function Units() {
           <pre>Filter by cost</pre>
         </span>
         <div className="filter-by-cost-container">
-          {/* Render filter options */}
-          {Object.entries(filterValues).map(([item, filterItem]) => (
-            <div className="filter-group" key={item}>
-              <Form.Check
-                type="checkbox"
-                id={`default-checkbox`}
-                label={item}
-                name={item}
-                onChange={handleChecked}
-                checked={filterItem.isChecked}
-              />
-              <Slider
-                getAriaLabel={() => 'Cost Range'}
-                name={item}
-                value={filterItem.value}
-                onChange={handleCost}
-                valueLabelDisplay="auto"
-                min={0}
-                max={200}
-                step={5}
-                disabled={!filterItem.isChecked}
-              />
-              {/* Display the range values */}
-              <span className="value-display-area">
-                {filterItem.isChecked ? `${filterItem.value[0]} - ${filterItem.value[1]}` : '--'}
-              </span>
-            </div>
-          ))}
+          {Object.keys(filterValues).map((item) => {
+            const filterItem = filterValues[item];
+            return (
+              <div className="filter-group" key={item}>
+                <Form.Check
+                  type={'checkbox'}
+                  id={`${item}`}
+                  label={item}
+                  name={item}
+                  onChange={handleChecked}
+                  checked={filterValues[item].isChecked}
+                />
+                <Slider
+                  getAriaLabel={() => 'Cost Range'}
+                  name={item}
+                  value={filterItem.value}
+                  onChange={handleCost}
+                  valueLabelDisplay="auto"
+                  min={0}
+                  max={200}
+                  step={5}
+                  disabled={!filterValues[item].isChecked}
+                />
+                {filterValues[item].isChecked ? (
+                  <span className="value-display-area">{`${filterItem.value[0]} - ${filterItem.value[1]}`}</span>
+                ) : (
+                  <span className="value-display-area">--</span>
+                )}
+              </div>
+            );
+          })}
         </div>
       </Box>
       <CustomTable data={filterCost(filterValues, unitsReducer.units)} />
