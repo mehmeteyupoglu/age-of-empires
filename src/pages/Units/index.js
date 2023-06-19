@@ -63,10 +63,9 @@ function Units() {
           <pre>Filter by ages</pre>
         </span>
         <Tabs value={filter} onChange={handleChange} aria-label="ages-filter">
-          <Tab value="All" label="All" />
-          <Tab value="Dark" label="Dark" />
-          <Tab value="Feudal" label="Feudal" />
-          <Tab value="Castle" label="Castle" />
+          {['All', 'Dark', 'Feudal', 'Castle'].map((value) => (
+            <Tab key={value} value={value} label={value} />
+          ))}
         </Tabs>
       </Box>
       <Box sx={{ width: '100%' }} className="center-layout">
