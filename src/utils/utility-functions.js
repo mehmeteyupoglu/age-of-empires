@@ -60,23 +60,51 @@ export const activeFilters = (filterObject) => {
 };
 
 /**
- * @function
- * @param {object}
- * @returns {string} cumulative cost properties
+ * Transforms the given data into a specific format.
+ * @param {Array} data - The data to be transformed.
+ * @returns {Object} - The transformed data in the desired format.
  */
 
-export const filterCost = (filterObject = {}, type, value, data) => {
-  console.log('filterObject', filterObject);
+export const transformData = (data) => {
+  const transformedData = {
+    id: data.id,
+    name: data.name,
+    description: data.description,
+    age: data.age,
+    wood_cost: data.cost.Wood,
+    food_cost: data.cost.Food,
+    gold_cost: data.cost.Gold,
+    build_time: data.build_time,
+    reload_time: data.reload_time,
+    hit_points: data.hit_points
+  };
 
-  // const _activeFilters = activeFilters(filterObject);
+  return transformedData;
+};
 
-  data = data.filter((item) => {
+/**
+ * Filters data based on cost ranges.
+ * @param {Object} filterValues - Object containing cost filter values and settings.
+ * @param {Array} data - Array of data to be filtered.
+ * @returns {Array} - Filtered data based on cost ranges.
+ */
+export const filterCost = (filterValues, data) => {
+  const filteredData = data.filter((item) => {
     if (item.cost) {
-      if (item.cost[type] >= value[0] && item.cost[type] <= value[1]) {
-        return item;
-      }
+      let isFiltered = true;
+      Object.entries(filterValues).forEach(([type, filter]) => {
+        if (
+          filter.isChecked &&
+          filter.isActivated &&
+          (item.cost[type] < filter.value[0] || item.cost[type] > filter.value[1])
+        ) {
+          isFiltered = false;
+        }
+      });
+      return isFiltered;
     }
+    return false;
   });
 
-  return data;
+  return filteredData;
 };
