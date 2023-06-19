@@ -1,5 +1,3 @@
-README
-
 # Age of Empires
 
 This project is called Age of Empires and it started on June 12, 2023, with an expected end date of June 20, 2023.
