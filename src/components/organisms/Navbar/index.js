@@ -6,7 +6,7 @@ function Navbar({ title }) {
       <h2>{title}</h2>
       <div>
         <Link to="/">Home Page</Link>
-        <Link to="units">Units</Link>
+        <Link to="/units">Units</Link>
       </div>
     </div>
   );
