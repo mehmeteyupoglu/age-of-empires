@@ -55,7 +55,7 @@ yarn install
 
 ### Compiles and Hot-Reloads for Development
 
-Start the development server with hot-reloading:
+Start the development server and json-server with hot-reloading:
 
 ```
 yarn start
