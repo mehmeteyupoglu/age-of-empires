@@ -7,10 +7,19 @@
 // pages
 @import url('./pages/Home/Home.scss');
 @import url('./pages/NotFound/NotFound.scss');
-@import url('./pages/Todos/Todos.scss');
 @import url('./pages/Units/Units.scss');
 @import url('./pages/UnitDetails/UnitDetails.scss');
 
 .main-padding {
   padding: 0 40px;
+}
+
+.main-padding {
+  &.image-container {
+    padding: 0 200px;
+  }
+}
+
+body {
+  background: #c3c2ea42;
 }
