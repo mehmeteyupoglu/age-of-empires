@@ -20,6 +20,11 @@ The following tools, conventions, and design systems have been used in the proje
 - The project has been documented using [JSDoc](https://jsdoc.app/) and the [React Style Guide](https://react-styleguidist.github.io/).
 - [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/) principles have been applied to ensure clean component reusability and a solid structure.
 
+## Assumptions
+
+- The dataset used in the application is not expected to be large.
+- The data is served by a typical backend.
+
 ## Timeline
 
 The project was developed over a couple of days. Here is a breakdown of the development timeline:
