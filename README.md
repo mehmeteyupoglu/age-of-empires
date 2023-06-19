@@ -86,9 +86,7 @@ yarn test
 
 The project is deployed to the following URL: [https://age-of-empires-orpin.vercel.app/](https://age-of-empires-orpin.vercel.app/).
 
-Please note that even in
-
-the deployed version, the json-server should be running locally to fetch the data.
+Please note that even in the deployed version, the json-server should be running locally to fetch the data.
 
 ---
 
