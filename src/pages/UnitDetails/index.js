@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -14,6 +14,7 @@ import { UNIT_DETAIL_FIELDS } from '../../utils/constants';
 
 function UnitDetails() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { id } = useParams();
   const unitsReducer = useSelector((state) => state.unitsReducer);
 
@@ -24,6 +25,10 @@ function UnitDetails() {
   useEffect(() => {
     dispatch(getUnitsRequest(`?id=${id}`));
   }, [dispatch, id]);
+
+  const goBack = () => {
+    navigate(-1);
+  };
 
   return (
     <Box sx={{ width: '100%' }} className="center-layout unit-details">
@@ -44,7 +49,9 @@ function UnitDetails() {
           ))}
         </CardContent>
         <CardActions>
-          <Button size="small">Turn Back</Button>
+          <Button size="small" onClick={goBack}>
+            Turn Back
+          </Button>
         </CardActions>
       </Card>
     </Box>
